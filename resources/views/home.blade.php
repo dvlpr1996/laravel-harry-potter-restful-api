@@ -7,6 +7,8 @@
     <title>Laravel Harry Potter Restful Api</title>
 </head>
 <body>
-
+    <h1>
+        Laravel Harry Potter Restful Api
+    </h1>
 </body>
 </html>
