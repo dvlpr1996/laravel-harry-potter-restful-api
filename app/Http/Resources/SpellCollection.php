@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Illuminate\Support\Facades\Config;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class SpellCollection extends ResourceCollection
@@ -11,9 +12,9 @@ class SpellCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'meta' => [
-                'created at' => '12-1-2022',
-                'home page' => 'https://github.com/dvlpr1996/laravel-harry-potter-restful-api',
-                'copyright' => 'Copyright © 2022 (until present) Laravel restful harry potter api. All Rights Reserved'
+                'created at' => Config::get('api.meta_info.created_at'),
+                'home page' => Config::get('api.meta_info.home_page'),
+                'copyright' => Config::get('api.meta_info.copyright')
             ]
         ];
     }
