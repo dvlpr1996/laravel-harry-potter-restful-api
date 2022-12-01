@@ -3,11 +3,13 @@
 namespace Database\Seeders;
 
 use App\Models\MovieStar;
+use App\Traits\SeederHandler;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class MovieStarSeeder extends Seeder
 {
+    use SeederHandler;
+
     public function run()
     {
         $data = [
@@ -49,8 +51,8 @@ class MovieStarSeeder extends Seeder
 
         foreach ($result as $key => $value) {
             MovieStar::create([
-                'movie_id' => $value['movie_id'],
-                'star_id' => $value['star_id']
+                'movie_id' => $this->prepareData($value['movie_id']),
+                'star_id' => $this->prepareData($value['star_id'])
             ]);
         }
     }

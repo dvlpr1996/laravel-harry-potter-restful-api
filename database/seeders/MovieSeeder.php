@@ -3,36 +3,33 @@
 namespace Database\Seeders;
 
 use App\Models\Movie;
-use Illuminate\Support\Str;
+use App\Traits\SeederHandler;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\File;
 
 class MovieSeeder extends Seeder
 {
+    use SeederHandler;
+
     public function run()
     {
-        $dataPath = __DIR__ . '/../../database/data/Movies.json';
 
-        if (is_file($dataPath) && file_exists($dataPath)) {
+        $data = $this->getJsonData('movies');
 
-            $data = json_decode(File::get($dataPath));
-
-            foreach ($data as $key => $value) {
-                Movie::create([
-                    'title' => trim($value->title),
-                    'slug' => Str::slug(trim($value->title)),
-                    'director' => trim($value->directors),
-                    'box_office' => trim($value->box_office),
-                    'us_rating' => trim($value->rating[0]->us),
-                    'uk_rating' => trim($value->rating[1]->uk),
-                    'novel_writer' => trim($value->writers[0]->novel),
-                    'screenplay_writer' => trim($value->writers[1]->screenplay),
-                    'release_date' => trim($value->release_date),
-                    'running_time' => trim($value->running_time),
-                    'budget' => trim($value->budget),
-                    'poster' => trim($value->poster),
-                ]);
-            }
+        foreach ($data as $key => $value) {
+            Movie::create([
+                'title' => $this->prepareData($value->title),
+                'slug' => $this->prepareSlugData($value->title),
+                'director' => $this->prepareData($value->directors),
+                'box_office' => $this->prepareData($value->box_office),
+                'us_rating' => $this->prepareData($value->rating[0]->us),
+                'uk_rating' => $this->prepareData($value->rating[1]->uk),
+                'novel_writer' => $this->prepareData($value->writers[0]->novel),
+                'screenplay_writer' => $this->prepareData($value->writers[1]->screenplay),
+                'release_date' => $this->prepareData($value->release_date),
+                'running_time' => $this->prepareData($value->running_time),
+                'budget' => $this->prepareData($value->budget),
+                'poster' => $this->prepareUrlData($value->poster),
+            ]);
         }
     }
 }

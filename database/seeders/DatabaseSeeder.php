@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Database\Seeders\BookSeeder;
 use Database\Seeders\StarSeeder;
@@ -28,10 +27,10 @@ class DatabaseSeeder extends Seeder
             FeatureSeeder::class,
             CharacterSeeder::class,
             MovieSeeder::class,
-            ProducerSeeder::class,
             StarSeeder::class,
-            MovieProducerSeeder::class,
+            ProducerSeeder::class,
             MovieStarSeeder::class,
+            MovieProducerSeeder::class,
         ]);
     }
 }

@@ -3,10 +3,13 @@
 namespace Database\Seeders;
 
 use App\Models\MovieProducer;
+use App\Traits\SeederHandler;
 use Illuminate\Database\Seeder;
 
 class MovieProducerSeeder extends Seeder
 {
+    use SeederHandler;
+
     public function run()
     {
         $data = [
@@ -32,8 +35,8 @@ class MovieProducerSeeder extends Seeder
 
         foreach ($result as $key => $value) {
             MovieProducer::create([
-                'movie_id' => $value['movie_id'],
-                'producer_id' => $value['producer_id']
+                'movie_id' => $this->prepareData($value['movie_id']),
+                'producer_id' => $this->prepareData($value['producer_id'])
             ]);
         }
     }

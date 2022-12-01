@@ -3,28 +3,24 @@
 namespace Database\Seeders;
 
 use App\Models\Spell;
-use Illuminate\Support\Str;
+use App\Traits\SeederHandler;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\File;
 
 class SpellSeeder extends Seeder
 {
+    use SeederHandler;
+
     public function run()
     {
-        $dataPath = __DIR__ . '/../../Database/data/spells.json';
+        $data = $this->getJsonData('spells');
 
-        if (is_file($dataPath) && file_exists($dataPath)) {
-
-            $data = json_decode(File::get($dataPath));
-
-            foreach ($data as $key => $value) {
-                Spell::create([
-                    'name' => trim(e($value->name)),
-                    'slug' => Str::slug(trim(e($value->name))),
-                    'pronunciation' => trim(e($value->pronunciation)),
-                    'description' => trim(e($value->description)),
-                ]);
-            }
+        foreach ($data as $key => $value) {
+            Spell::create([
+                'name' => $this->prepareData($value->name),
+                'slug' => $this->prepareSlugData($value->name),
+                'pronunciation' => $this->prepareData($value->pronunciation),
+                'description' => $this->prepareData($value->description),
+            ]);
         }
     }
 }

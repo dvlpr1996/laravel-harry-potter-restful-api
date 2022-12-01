@@ -3,11 +3,13 @@
 namespace Database\Seeders;
 
 use App\Models\Producer;
+use App\Traits\SeederHandler;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ProducerSeeder extends Seeder
 {
+    use SeederHandler;
+
     public function run()
     {
         $data = [
@@ -20,7 +22,7 @@ class ProducerSeeder extends Seeder
 
         foreach ($data as $value) {
             Producer::create([
-                'name' => ucfirst(trim($value))
+                'name' => $this->prepareData(ucfirst($value))
             ]);
         }
     }

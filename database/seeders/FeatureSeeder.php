@@ -3,29 +3,31 @@
 namespace Database\Seeders;
 
 use App\Models\Feature;
+use App\Traits\SeederHandler;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class FeatureSeeder extends Seeder
 {
+    use SeederHandler;
+
     public function run()
     {
         $data = [
             '1' => [
+                'nerve',
+                'daring',
                 'courage',
                 'bravery',
-                'determination',
-                'daring',
-                'nerve',
-                'chivalry'
+                'chivalry',
+                'determination'
             ],
             '2' => [
-                'hard-working',
-                'patience',
-                'fairness',
                 'just',
+                'modesty',
                 'loyalty',
-                'modesty'
+                'fairness',
+                'patience',
+                'hard-working'
             ],
             '3' => [
                 'pride',
@@ -57,8 +59,8 @@ class FeatureSeeder extends Seeder
 
         foreach ($result as $key => $value) {
             Feature::create([
-                'house_id' => $value['house_id'],
-                'feature' => $value['feature']
+                'house_id' => $this->prepareData($value['house_id']),
+                'feature' => $this->prepareData($value['feature'])
             ]);
         }
     }

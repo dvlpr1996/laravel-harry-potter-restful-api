@@ -4,38 +4,37 @@ namespace Database\Seeders;
 
 use App\Models\Book;
 use Illuminate\Support\Str;
+use App\Traits\SeederHandler;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 
+
 class BookSeeder extends Seeder
 {
+    use SeederHandler;
+
     public function run()
     {
-        $dataPath = __DIR__ . '/../../database/data/books.json';
+        $data = $this->getJsonData('books');
 
-        if (is_file($dataPath) && file_exists($dataPath)) {
-
-            $data = json_decode(File::get($dataPath));
-
-            foreach ($data as $key => $value) {
-                Book::create([
-                    'title' => $value->title,
-                    'slug' => Str::slug($value->title),
-                    'author' => $value->author,
-                    'language' => $value->language,
-                    'genre' => $value->genre,
-                    'type' => $value->type,
-                    'country' => $value->country,
-                    'series_number' => $value->series_number,
-                    'ISBN' => $value->isbn,
-                    'pages' => $value->pages,
-                    'uk_publish_date' => $value->publish_date[0]->uk,
-                    'us_publish_date' => $value->publish_date[1]->us,
-                    'cover_path' => $value->cover_path,
-                    'book_info_url' => $value->book_info_url,
-                    'summary' => $value->summary,
-                ]);
-            }
+        foreach ($data as $key => $value) {
+            Book::create([
+                'title' =>  $this->prepareData($value->title),
+                'slug' =>  $this->prepareSlugData($value->title),
+                'author' =>  $this->prepareData($value->author),
+                'language' =>  $this->prepareData($value->language),
+                'genre' =>  $this->prepareData($value->genre),
+                'type' =>  $this->prepareData($value->type),
+                'country' =>  $this->prepareData($value->country),
+                'series_number' =>  $this->prepareData($value->series_number),
+                'ISBN' =>  $this->prepareData($value->isbn),
+                'pages' =>  $this->prepareData($value->pages),
+                'uk_publish_date' =>  $this->prepareData($value->publish_date[0]->uk),
+                'us_publish_date' =>  $this->prepareData($value->publish_date[1]->us),
+                'cover_path' =>  $this->prepareUrlData($value->cover_path),
+                'book_info_url' =>  $this->prepareUrlData($value->book_info_url),
+                'summary' => $this->prepareData($value->summary)
+            ]);
         }
     }
 }

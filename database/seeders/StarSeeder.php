@@ -3,10 +3,13 @@
 namespace Database\Seeders;
 
 use App\Models\Star;
+use App\Traits\SeederHandler;
 use Illuminate\Database\Seeder;
 
 class StarSeeder extends Seeder
 {
+    use SeederHandler;
+
     public function run()
     {
         $data = [
@@ -78,7 +81,7 @@ class StarSeeder extends Seeder
 
         foreach ($data as $key => $value) {
             Star::create([
-                'name' => ucwords(trim(e($value)))
+                'name' => $this->prepareData(ucwords($value))
             ]);
         }
     }
