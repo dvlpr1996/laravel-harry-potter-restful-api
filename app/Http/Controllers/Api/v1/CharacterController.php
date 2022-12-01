@@ -2,20 +2,25 @@
 
 namespace App\Http\Controllers\Api\v1;
 
-use App\Models\Character;
+use App\Traits\ApiHandleRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CharacterResource;
-use App\Http\Resources\CharacterCollection;
 
 class CharacterController extends Controller
 {
-    public function index()
+    use ApiHandleRequest;
+
+    public function __construct()
     {
-        return new CharacterCollection(Character::paginate(10));
+        $this->apiHandleRequestTraitNameSpaceSetter('character');
     }
 
-    public function show($id)
+    public function index()
     {
-        return new CharacterResource(Character::findOrFail($id));
+        return $this->showApiDataCollection();
+    }
+
+    public function show($character)
+    {
+        return $this->showApiData($character);
     }
 }

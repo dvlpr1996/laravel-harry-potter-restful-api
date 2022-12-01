@@ -12,7 +12,8 @@ class BookCollection extends ResourceCollection
             'data' => $this->collection,
             'meta' => [
                 'created at' => '12-1-2022',
-                'copyright' => '© Copyright 2022 (until present) Laravel restful harry potter api'
+                'home page' => 'https://github.com/dvlpr1996/laravel-harry-potter-restful-api',
+                'copyright' => 'Copyright © 2022 (until present) Laravel restful harry potter api. All Rights Reserved'
             ]
         ];
     }

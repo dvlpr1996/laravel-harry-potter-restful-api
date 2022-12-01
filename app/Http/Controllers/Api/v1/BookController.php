@@ -2,20 +2,25 @@
 
 namespace App\Http\Controllers\Api\v1;
 
-use App\Models\Book;
+use App\Traits\ApiHandleRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\BookResource;
-use App\Http\Resources\BookCollection;
 
 class BookController extends Controller
 {
-    public function index()
+    use ApiHandleRequest;
+
+    public function __construct()
     {
-        return new BookCollection(Book::all());
+        $this->apiHandleRequestTraitNameSpaceSetter('book');
     }
 
-    public function show($id)
+    public function index()
     {
-        return new BookResource(Book::findOrFail($id));
+        return $this->showApiDataCollection(true);
+    }
+
+    public function show($book)
+    {
+        return $this->showApiData($book);
     }
 }
