@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\ApiController;
 use App\Http\Controllers\Api\v1\BookController;
 use App\Http\Controllers\Api\v1\SpellController;
+use App\Http\Controllers\Api\v1\PotionController;
 use App\Http\Controllers\Api\v1\CharacterController;
 
 Route::prefix('v1')->group(function () {
@@ -22,5 +23,10 @@ Route::prefix('v1')->group(function () {
     Route::controller(SpellController::class)->group(function () {
         Route::Get('/spells', 'index');
         Route::Get('/spell/{spell}', 'show');
+    });
+
+    Route::controller(PotionController::class)->group(function () {
+        Route::Get('/potions', 'index');
+        Route::Get('/potion/{potion}', 'show');
     });
 });
