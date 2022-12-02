@@ -8,21 +8,45 @@ trait ApiHandleRequest
     private $resource;
     private $collection;
 
+    /**
+     * set NameSpace for model
+     *
+     * @param string $modelName 
+     * @return void 
+     */
     private function  setModelNameSpace(string $modelName)
     {
         $this->model = 'App\Models\\' . ucfirst($modelName);
     }
 
+    /**
+     * set NameSpace for Resource
+     *
+     * @param string $modelName 
+     * @return void 
+     */
     private function  setResourceNameSpace(string $modelName)
     {
         $this->resource = 'App\Http\Resources\\' . ucfirst($modelName . 'resource');
     }
 
+    /**
+     * set NameSpace for Resource Collection
+     *
+     * @param string $modelName 
+     * @return void 
+     */
     private function  setResourceCollectionNameSpace(string $modelName)
     {
         $this->collection = 'App\Http\Resources\\' . ucfirst($modelName . 'collection');
     }
 
+    /**
+     * setter for NameSpaces
+     *
+     * @param string $resourceName 
+     * @return void 
+     */
     protected function apiHandleRequestTraitNameSpaceSetter(string $resourceName)
     {
         $this->setModelNameSpace($resourceName);
@@ -73,6 +97,13 @@ trait ApiHandleRequest
         return new $this->collection($apiData);
     }
 
+    /**
+     * return data by id, ids or slugs based on $param
+     *
+     * @param string $param 
+     * @return mixed 
+     */
+    // showSpecificApiData
     protected function showApiData(string $param): mixed
     {
         $param = trim($param);
@@ -87,6 +118,13 @@ trait ApiHandleRequest
             return $this->getDataBySlug($param);
     }
 
+    /**
+     * return all specific resource data
+     *
+     * @param bool $isAll 
+     * @return mixed 
+     */
+    // showAllApiData
     protected function showApiDataCollection(bool $isAll = false): mixed
     {
         ($isAll) ? $isAll = $this->model::all() : $isAll = $this->model::paginate(10);

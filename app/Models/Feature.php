@@ -10,12 +10,8 @@ class Feature extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['feature', 'house_id'];
     protected $hidden = ['created_at', 'updated_at'];
-
-    protected $fillable = [
-        'feature',
-        'house_id'
-    ];
 
     public function house()
     {

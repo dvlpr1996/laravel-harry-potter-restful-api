@@ -15,7 +15,7 @@
         "animal": "lion",
         "element": "fire",
         "slogan": "their daring, nerve and chivalry set gryffindors apart",
-        "banner": null
+        "banner": ""
     },
     {
         "name": "hufflepuff",
@@ -33,7 +33,7 @@
         "animal": "badger",
         "element": "earth",
         "slogan": "those patient hufflepuffs are true and unafraid of toil",
-        "banner": null
+        "banner": ""
     },
     {
         "name": "slytherin",
@@ -51,7 +51,7 @@
         "animal": "serpent",
         "element": "water",
         "slogan": "slytherin will help you on your way to greatness",
-        "banner": null
+        "banner": ""
     },
     {
         "name": "ravenclaw",
@@ -69,6 +69,6 @@
         "animal": "eagle",
         "element": "air",
         "slogan": "wit beyond measure is man's greatest treasure",
-        "banner": null
+        "banner": ""
     }
 ]

@@ -10,8 +10,6 @@ class House extends Model
 {
     use HasFactory;
 
-    protected $hidden = ['created_at', 'updated_at'];
-
     protected $fillable = [
         'name',
         'slug',
@@ -25,6 +23,8 @@ class House extends Model
         'common_room_entrance',
         'common_room_location',
     ];
+
+    protected $hidden = ['created_at', 'updated_at'];
 
     public function features()
     {
