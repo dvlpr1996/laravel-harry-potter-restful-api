@@ -44,7 +44,7 @@ class Character extends Model
     protected function type(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => $this->selectCharacterType($value == 0)
+            get: fn ($value) => $this->selectCharacterType($value)
         );
     }
 

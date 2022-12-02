@@ -11,8 +11,8 @@ trait ApiHandleRequest
     /**
      * set NameSpace for model
      *
-     * @param string $modelName 
-     * @return void 
+     * @param string $modelName
+     * @return void
      */
     private function  setModelNameSpace(string $modelName)
     {
@@ -22,8 +22,8 @@ trait ApiHandleRequest
     /**
      * set NameSpace for Resource
      *
-     * @param string $modelName 
-     * @return void 
+     * @param string $modelName
+     * @return void
      */
     private function  setResourceNameSpace(string $modelName)
     {
@@ -33,8 +33,8 @@ trait ApiHandleRequest
     /**
      * set NameSpace for Resource Collection
      *
-     * @param string $modelName 
-     * @return void 
+     * @param string $modelName
+     * @return void
      */
     private function  setResourceCollectionNameSpace(string $modelName)
     {
@@ -44,8 +44,8 @@ trait ApiHandleRequest
     /**
      * setter for NameSpaces
      *
-     * @param string $resourceName 
-     * @return void 
+     * @param string $resourceName
+     * @return void
      */
     protected function apiHandleRequestTraitNameSpaceSetter(string $resourceName)
     {
@@ -54,21 +54,21 @@ trait ApiHandleRequest
         $this->setResourceCollectionNameSpace($resourceName);
     }
 
-    private function isIdRequest(string $data): bool
+    protected function isIdRequest(string $data): bool
     {
         if (is_numeric($data) && preg_match('/^\d+$/', $data))
             return true;
         return false;
     }
 
-    private function isMultipleIdRequest(string $data): bool
+    protected function isMultipleIdRequest(string $data): bool
     {
         if (is_string($data) && preg_match('/^\d+,\d+$/', $data))
             return true;
         return false;
     }
 
-    private function isSlugRequest(string $data): bool
+    protected function isSlugRequest(string $data): bool
     {
         if (is_string($data) && preg_match('/[-a-zA-Z]+/', $data))
             return true;
@@ -91,7 +91,7 @@ trait ApiHandleRequest
         $apiData = $this->model::whereBetween('id', [$params[0], $params[1]])->get();
 
         if (!$apiData->contains($params[0]) || !$apiData->contains($params[1]))
-            #error 
+            #error
             die('not found');
 
         return new $this->collection($apiData);
@@ -100,8 +100,8 @@ trait ApiHandleRequest
     /**
      * return data by id, ids or slugs based on $param
      *
-     * @param string $param 
-     * @return mixed 
+     * @param string $param
+     * @return mixed
      */
     // showSpecificApiData
     protected function showApiData(string $param): mixed
@@ -121,8 +121,8 @@ trait ApiHandleRequest
     /**
      * return all specific resource data
      *
-     * @param bool $isAll 
-     * @return mixed 
+     * @param bool $isAll
+     * @return mixed
      */
     // showAllApiData
     protected function showApiDataCollection(bool $isAll = false): mixed
