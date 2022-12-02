@@ -9,12 +9,10 @@ class MovieStar extends Model
 {
     use HasFactory;
 
-    protected $table = 'movie_star';
-
     protected $fillable = [
         'star_id',
         'movie_id'
     ];
 
-    protected $hidden = ['pivot', 'created_at', 'updated_at', 'id'];
+    protected $hidden = ['created_at', 'updated_at'];
 }

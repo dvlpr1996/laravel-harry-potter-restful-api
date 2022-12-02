@@ -9,8 +9,6 @@ class MovieProducer extends Model
 {
     use HasFactory;
 
-    protected $table = 'movie_producer';
-
     protected $hidden = ['created_at', 'updated_at'];
 
     protected $fillable = [

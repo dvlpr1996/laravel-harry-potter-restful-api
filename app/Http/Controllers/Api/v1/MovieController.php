@@ -6,7 +6,9 @@ use App\Models\Movie;
 use Illuminate\Http\Request;
 use App\Traits\ApiHandleRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\StarCollection;
 use App\Http\Resources\MovieCollection;
+use App\Http\Resources\StarResource;
 
 class MovieController extends Controller
 {
@@ -29,7 +31,7 @@ class MovieController extends Controller
 
     public function showStars(Movie $movie)
     {
-        $houseFeature = Movie::find($movie->id)->stars;
-        return new MovieCollection($houseFeature);
+        $movieStars = Movie::find($movie->id)->stars;
+        return new StarCollection($movieStars);
     }
 }
