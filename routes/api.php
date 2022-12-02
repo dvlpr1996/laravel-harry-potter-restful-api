@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\ApiController;
 use App\Http\Controllers\Api\v1\BookController;
 use App\Http\Controllers\Api\v1\HouseController;
+use App\Http\Controllers\Api\v1\MovieController;
 use App\Http\Controllers\Api\v1\SpellController;
 use App\Http\Controllers\Api\v1\StaffController;
 use App\Http\Controllers\Api\v1\PotionController;
@@ -53,5 +54,11 @@ Route::prefix('v1')->group(function () {
     Route::controller(NormalCharacterController::class)->group(function () {
         Route::Get('/peoples', 'index');
         Route::Get('/peoples/{character}', 'show');
+    });
+
+    Route::controller(MovieController::class)->group(function () {
+        Route::Get('/movies', 'index');
+        Route::Get('/movie/{movie}', 'show');
+        Route::Get('/movie/{movie}/stars', 'showStars');
     });
 });
