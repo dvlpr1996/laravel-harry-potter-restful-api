@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\v1\HouseController;
 use App\Http\Controllers\Api\v1\SpellController;
 use App\Http\Controllers\Api\v1\StaffController;
 use App\Http\Controllers\Api\v1\PotionController;
+use App\Http\Controllers\Api\v1\StudentController;
 use App\Http\Controllers\Api\v1\CharacterController;
 
 Route::prefix('v1')->group(function () {
@@ -41,5 +42,10 @@ Route::prefix('v1')->group(function () {
     Route::controller(StaffController::class)->group(function () {
         Route::Get('/staff', 'index');
         Route::Get('/staff/{character}', 'show');
+    });
+
+    Route::controller(StudentController::class)->group(function () {
+        Route::Get('/students', 'index');
+        Route::Get('/student/{character}', 'show');
     });
 });

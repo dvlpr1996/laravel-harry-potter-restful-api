@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\CharacterResource;
 use App\Http\Resources\CharacterCollection;
 
-class StaffController extends Controller
+class StudentController extends Controller
 {
     use ApiHandleRequest;
 
@@ -19,21 +19,21 @@ class StaffController extends Controller
 
     public function index()
     {
-        $houseFeature = Character::where('type', '1')->get();
-        return new CharacterCollection($houseFeature);
+        $student = Character::where('type', '0')->paginate(10);
+        return new CharacterCollection($student);
     }
 
     public function show($character)
     {
         if ($this->isIdRequest($character)) {
-            $houseFeature = Character::where('type', '1')->where('id', $character)->first();
-            return new CharacterResource($houseFeature);
+            $student = Character::where('type', '0')->where('id', $character)->first();
+            return new CharacterResource($student);
         }
 
 
         if ($this->isSlugRequest($character)) {
-            $houseFeature = Character::where('type', '1')->where('slug', $character)->first();
-            return new CharacterResource($houseFeature);
+            $student = Character::where('type', '0')->where('slug', $character)->first();
+            return new CharacterResource($student);
         }
     }
 }
