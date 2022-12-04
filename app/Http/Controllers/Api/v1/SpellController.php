@@ -16,7 +16,7 @@ class SpellController extends Controller
 
     public function index()
     {
-        return $this->showApiDataCollection();
+        return $this->showApiDataCollectionWithPagination();
     }
 
     public function show($spell)

@@ -53,12 +53,13 @@ Route::prefix('v1')->group(function () {
 
     Route::controller(NormalCharacterController::class)->group(function () {
         Route::Get('/peoples', 'index');
-        Route::Get('/peoples/{character}', 'show');
+        Route::Get('/people/{character}', 'show');
     });
 
     Route::controller(MovieController::class)->group(function () {
         Route::Get('/movies', 'index');
         Route::Get('/movie/{movie}', 'show');
         Route::Get('/movie/{movie}/stars', 'showStars');
+        Route::Get('/movie/{movie}/producers', 'showProducers');
     });
 });

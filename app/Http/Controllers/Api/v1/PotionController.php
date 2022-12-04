@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api\v1;
 
-use Illuminate\Http\Request;
 use App\Traits\ApiHandleRequest;
 use App\Http\Controllers\Controller;
 
@@ -17,7 +16,7 @@ class PotionController extends Controller
 
     public function index()
     {
-        return $this->showApiDataCollection();
+        return $this->showApiDataCollectionWithPagination();
     }
 
     public function show($potion)

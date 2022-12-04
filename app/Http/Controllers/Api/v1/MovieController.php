@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Models\Movie;
-use Illuminate\Http\Request;
 use App\Traits\ApiHandleRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\StarCollection;
-use App\Http\Resources\MovieCollection;
-use App\Http\Resources\StarResource;
+use App\Http\Resources\ProducerCollection;
 
 class MovieController extends Controller
 {
@@ -21,7 +19,7 @@ class MovieController extends Controller
 
     public function index()
     {
-        return $this->showApiDataCollection();
+        return $this->showApiDataCollectionWithPagination();
     }
 
     public function show($movie)
@@ -31,7 +29,11 @@ class MovieController extends Controller
 
     public function showStars(Movie $movie)
     {
-        $movieStars = Movie::find($movie->id)->stars;
-        return new StarCollection($movieStars);
+        return new StarCollection(Movie::findOrFail($movie->id)->stars);
+    }
+
+    public function showProducers(Movie $movie)
+    {
+        return new ProducerCollection(Movie::findOrFail($movie->id)->producers);
     }
 }

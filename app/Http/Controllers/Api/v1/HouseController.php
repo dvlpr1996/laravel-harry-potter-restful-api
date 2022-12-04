@@ -3,12 +3,8 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Models\House;
-use App\Models\Feature;
-use Illuminate\Support\Arr;
 use App\Traits\ApiHandleRequest;
-use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\FeatureResource;
 use App\Http\Resources\FeatureCollection;
 
 class HouseController extends Controller
@@ -22,7 +18,7 @@ class HouseController extends Controller
 
     public function index()
     {
-        return $this->showApiDataCollection(true);
+        return $this->showApiDataCollectionWithPagination(true);
     }
 
     public function show($house)
@@ -32,7 +28,6 @@ class HouseController extends Controller
 
     public function showFeatures(House $house)
     {
-        $houseFeature = House::find($house->id)->features;
-        return new FeatureCollection($houseFeature);
+        return new FeatureCollection(House::findOrFail($house->id)->features);
     }
 }

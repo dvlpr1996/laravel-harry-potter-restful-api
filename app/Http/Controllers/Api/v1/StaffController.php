@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Models\Character;
+use Illuminate\Http\Request;
 use App\Traits\ApiHandleRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CharacterResource;
@@ -19,21 +20,21 @@ class StaffController extends Controller
 
     public function index()
     {
-        $houseFeature = Character::where('type', '1')->get();
-        return new CharacterCollection($houseFeature);
+        $houseFeature = Character::where('type', '1')->paginate(10);
+        return $this->showApiDataCollection($houseFeature);
     }
 
     public function show($character)
     {
         if ($this->isIdRequest($character)) {
-            $houseFeature = Character::where('type', '1')->where('id', $character)->first();
-            return new CharacterResource($houseFeature);
+            $houseFeature = Character::where('type', '1')->where('id', $character)->firstOrFail();
+            return $this->showApiDataResource($houseFeature);
         }
 
 
         if ($this->isSlugRequest($character)) {
-            $houseFeature = Character::where('type', '1')->where('slug', $character)->first();
-            return new CharacterResource($houseFeature);
+            $houseFeature = Character::where('type', '1')->where('slug', $character)->firstOrFail();
+            return $this->showApiDataResource($houseFeature);
         }
     }
 }

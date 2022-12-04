@@ -16,7 +16,7 @@ class BookController extends Controller
 
     public function index()
     {
-        return $this->showApiDataCollection(true);
+        return $this->showApiDataCollectionWithPagination(true);
     }
 
     public function show($book)

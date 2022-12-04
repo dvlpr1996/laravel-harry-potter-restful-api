@@ -77,12 +77,12 @@ trait ApiHandleRequest
 
     private function getDataById(string  $param)
     {
-        return new $this->resource($this->model::findOrFail($param));
+        return $this->showApiDataResource($this->model::findOrFail($param));
     }
 
     private function getDataBySlug(string  $param)
     {
-        return new $this->resource($this->model::where('slug', $param)->firstOrFail());
+        return $this->showApiDataResource($this->model::where('slug', $param)->firstOrFail());
     }
 
     private function getDataByIds(string  $param)
@@ -94,7 +94,7 @@ trait ApiHandleRequest
             #error
             die('not found');
 
-        return new $this->collection($apiData);
+        return $this->showApiDataCollection($apiData);
     }
 
     /**
@@ -103,8 +103,7 @@ trait ApiHandleRequest
      * @param string $param
      * @return mixed
      */
-    // showSpecificApiData
-    protected function showApiData(string $param): mixed
+    protected function showApiData(string $param)
     {
         $param = trim($param);
 
@@ -119,13 +118,28 @@ trait ApiHandleRequest
     }
 
     /**
-     * return all specific resource data
+     * return resource collection
      *
      * @param bool $isAll
      * @return mixed
      */
-    // showAllApiData
-    protected function showApiDataCollection(bool $isAll = false): mixed
+    protected function showApiDataCollection($resource)
+    {
+        return new $this->collection($resource);
+    }
+
+    /**
+     * return resource
+     *
+     * @param bool $isAll
+     * @return mixed
+     */
+    protected function showApiDataResource($resource)
+    {
+        return new $this->resource($resource);
+    }
+
+    protected function showApiDataCollectionWithPagination(bool $isAll = false)
     {
         ($isAll) ? $isAll = $this->model::all() : $isAll = $this->model::paginate(10);
         return new $this->collection($isAll);

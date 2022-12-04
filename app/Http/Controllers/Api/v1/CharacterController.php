@@ -16,7 +16,7 @@ class CharacterController extends Controller
 
     public function index()
     {
-        return $this->showApiDataCollection();
+        return $this->showApiDataCollectionWithPagination();
     }
 
     public function show($character)
