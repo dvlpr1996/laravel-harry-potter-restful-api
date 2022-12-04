@@ -13,7 +13,7 @@ use App\Http\Controllers\Api\v1\CharacterController;
 use App\Http\Controllers\Api\v1\NormalCharacterController;
 
 Route::prefix('v1')->group(function () {
-    Route::Get('/', [ApiController::class, 'index']);
+    Route::Get('/', [ApiController::class, 'index'])->name('mainEndPoints');
 
     Route::controller(BookController::class)->group(function () {
         Route::Get('/books', 'index');
@@ -62,4 +62,12 @@ Route::prefix('v1')->group(function () {
         Route::Get('/movie/{movie}/stars', 'showStars');
         Route::Get('/movie/{movie}/producers', 'showProducers');
     });
+});
+
+Route::fallback(function () {
+    return response()->json([
+        'status' => 'error',
+        'message' => 'page not found you can see all main available routes at '
+            . route('mainEndPoints')
+    ], 404);
 });
