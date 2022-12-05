@@ -5,7 +5,7 @@
 Harry Potter Restful Api with laravel
 
 ## Usage
-first config tour database connection
+first config your database connection
 
 ```
 DB_CONNECTION=mysql
@@ -16,6 +16,11 @@ then run migrations
 
 ```
 php artisan migrate
+```
+add images to storage/app/public/ dir then run 
+
+```php
+php artisan storage:link
 ```
 
 finally run database seeders
