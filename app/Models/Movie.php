@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Star;
 use App\Models\Producer;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -57,6 +58,13 @@ class Movie extends Model
     {
         return Attribute::make(
             get: fn ($value) => $this->moneyFormat($value)
+        );
+    }
+
+    protected function poster(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => Config::get('app.url') . '/storage/' . $value
         );
     }
 

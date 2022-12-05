@@ -49,7 +49,6 @@
 
 <body>
 		<h1>Laravel Harry Potter Restful Api</h1>
-
 		<section>
 				<table>
 						<thead>

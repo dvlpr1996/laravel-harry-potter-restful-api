@@ -9,6 +9,8 @@ class MovieStar extends Model
 {
     use HasFactory;
 
+    protected $table = 'movie_star';
+    
     protected $fillable = [
         'star_id',
         'movie_id'

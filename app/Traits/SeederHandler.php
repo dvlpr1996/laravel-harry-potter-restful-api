@@ -50,7 +50,7 @@ trait SeederHandler
 
         $url = filter_var(trim($url), FILTER_SANITIZE_URL);
 
-        if (!filter_var($url, FILTER_VALIDATE_URL))
+        if (!$url)
             return 'not defined';
 
         return $url;
