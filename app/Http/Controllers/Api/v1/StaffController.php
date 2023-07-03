@@ -20,14 +20,14 @@ class StaffController extends Controller
 
     public function index()
     {
-        $houseFeature = Character::where('type', '1')->paginate(10);
+        $houseFeature = Character::Staff()->paginate(10);
         return $this->showApiDataCollection($houseFeature);
     }
 
     public function show($character)
     {
         if ($this->isIdRequest($character)) {
-            $houseFeature = Character::where('type', '1')->where('id', $character)->firstOrFail();
+            $houseFeature = Character::Staff()->where('id', $character)->firstOrFail();
             return $this->showApiDataResource($houseFeature);
         }
 

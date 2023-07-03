@@ -17,19 +17,19 @@ class NormalCharacterController extends Controller
 
     public function index()
     {
-        return $this->showApiDataCollection(Character::where('type', '2')->paginate(10));
+        return $this->showApiDataCollection(Character::OtherCharacters()->paginate(10));
     }
 
     public function show($character)
     {
         if ($this->isIdRequest($character)) {
-            $normalChar = Character::where('type', '2')->where('id', $character)->firstOrFail();
+            $normalChar = Character::OtherCharacters()->where('id', $character)->firstOrFail();
             return $this->showApiDataResource($normalChar);
         }
 
 
         if ($this->isSlugRequest($character)) {
-            $normalChar = Character::where('type', '2')->where('slug', $character)->firstOrFail();
+            $normalChar = Character::OtherCharacters()->where('slug', $character)->firstOrFail();
             return $this->showApiDataResource($normalChar);
         }
     }

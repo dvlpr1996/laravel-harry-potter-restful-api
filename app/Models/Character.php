@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -60,5 +61,20 @@ class Character extends Model
             return 'others';
 
         return '';
+    }
+
+    public function scopeOtherCharacters(Builder $query): void
+    {
+        $query->where('type', '2');
+    }
+
+    public function scopeStaff(Builder $query): void
+    {
+        $query->where('type', '1');
+    }
+
+    public function scopeStudent(Builder $query): void
+    {
+        $query->where('type', '0');
     }
 }

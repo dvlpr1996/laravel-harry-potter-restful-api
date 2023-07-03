@@ -19,20 +19,20 @@ class StudentController extends Controller
 
     public function index()
     {
-        $student = Character::where('type', '0')->paginate(10);
+        $student = Character::student()->paginate(10);
         return $this->showApiDataCollection($student);
     }
 
     public function show($character)
     {
         if ($this->isIdRequest($character)) {
-            $student = Character::where('type', '0')->where('id', $character)->firstOrFail();
+            $student = Character::student()->where('id', $character)->firstOrFail();
             return $this->showApiDataResource($student);
         }
 
 
         if ($this->isSlugRequest($character)) {
-            $student = Character::where('type', '0')->where('slug', $character)->firstOrFail();
+            $student = Character::student()->where('slug', $character)->firstOrFail();
             return $this->showApiDataResource($student);
         }
     }
