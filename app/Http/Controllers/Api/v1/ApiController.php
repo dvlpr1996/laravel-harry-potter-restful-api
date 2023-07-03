@@ -3,21 +3,21 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Config;
 
 class ApiController extends Controller
 {
     public function index()
     {
         $data = [
-            'staff' => Config::get('app.url') . '/api/v1/staff',
-            'books' => Config::get('app.url') . '/api/v1/books',
-            'houses' => Config::get('app.url') . '/api/v1/houses',
-            'movies' => Config::get('app.url') . '/api/v1/movies',
-            'spells' => Config::get('app.url') . '/api/v1/spells',
-            'potions' => Config::get('app.url') . '/api/v1/potions',
-            'students' => Config::get('app.url') . '/api/v1/students',
-            'characters' => Config::get('app.url') . '/api/v1/characters',
+            'books' => config('app.url') . config('api.v1.ver uri') . 'books',
+            'staffs' => config('app.url') . config('api.v1.ver uri') . 'staffs',
+            'movies' => config('app.url') . config('api.v1.ver uri') . 'movies',
+            'spells' => config('app.url') . config('api.v1.ver uri') . 'spells',
+            'houses' => config('app.url') . config('api.v1.ver uri') . 'houses',
+            'potions' => config('app.url') . config('api.v1.ver uri') . 'potions',
+            'peoples' => config('app.url') . config('api.v1.ver uri') . 'peoples',
+            'students' => config('app.url') . config('api.v1.ver uri') . 'students',
+            'characters' => config('app.url') . config('api.v1.ver uri') . 'characters',
         ];
 
         return $data;
