@@ -36,6 +36,14 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+
+        // Global Constraints
+        Route::pattern('book', '[a-zA-Z-]+');
+        Route::pattern('character', '[a-zA-Z-]+');
+        Route::pattern('spell', '[a-zA-Z-]+');
+        Route::pattern('potion', '[a-zA-Z-]+');
+        Route::pattern('house', '[a-zA-Z-]+');
+        Route::pattern('movie', '[a-zA-Z-]+');
     }
 
     /**

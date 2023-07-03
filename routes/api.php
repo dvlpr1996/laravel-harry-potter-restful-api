@@ -17,50 +17,50 @@ Route::prefix('v1')->group(function () {
 
     Route::controller(BookController::class)->group(function () {
         Route::Get('/books', 'index');
-        Route::Get('/book/{book}', 'show');
+        Route::Get('/books/{book}', 'show');
     });
 
     Route::controller(CharacterController::class)->group(function () {
         Route::Get('/characters', 'index');
-        Route::Get('/character/{character}', 'show');
+        Route::Get('/characters/{character}', 'show');
     });
 
     Route::controller(SpellController::class)->group(function () {
         Route::Get('/spells', 'index');
-        Route::Get('/spell/{spell}', 'show');
+        Route::Get('/spells/{spell}', 'show');
     });
 
     Route::controller(PotionController::class)->group(function () {
         Route::Get('/potions', 'index');
-        Route::Get('/potion/{potion}', 'show');
+        Route::Get('/potions/{potion}', 'show');
     });
 
     Route::controller(HouseController::class)->group(function () {
         Route::Get('/houses', 'index');
-        Route::Get('/house/{house}', 'show');
-        Route::Get('/house/{house}/features', 'showFeatures');
+        Route::Get('/houses/{house}', 'show');
+        Route::Get('/houses/{house}/features', 'showFeatures');
     });
 
     Route::controller(StaffController::class)->group(function () {
-        Route::Get('/staff', 'index');
-        Route::Get('/staff/{character}', 'show');
+        Route::Get('/staffs', 'index');
+        Route::Get('/staffs/{character}', 'show');
     });
 
     Route::controller(StudentController::class)->group(function () {
         Route::Get('/students', 'index');
-        Route::Get('/student/{character}', 'show');
+        Route::Get('/students/{character}', 'show');
     });
 
     Route::controller(NormalCharacterController::class)->group(function () {
         Route::Get('/peoples', 'index');
-        Route::Get('/people/{character}', 'show');
+        Route::Get('/peoples/{character}', 'show');
     });
 
     Route::controller(MovieController::class)->group(function () {
         Route::Get('/movies', 'index');
-        Route::Get('/movie/{movie}', 'show');
-        Route::Get('/movie/{movie}/stars', 'showStars');
-        Route::Get('/movie/{movie}/producers', 'showProducers');
+        Route::Get('/movies/{movie}', 'show');
+        Route::Get('/movies/{movie}/stars', 'showStars');
+        Route::Get('/movies/{movie}/producers', 'showProducers');
     });
 });
 
