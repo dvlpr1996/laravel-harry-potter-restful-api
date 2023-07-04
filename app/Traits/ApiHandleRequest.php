@@ -14,7 +14,7 @@ trait ApiHandleRequest
      * @param string $modelName
      * @return void
      */
-    private function  setModelNameSpace(string $modelName)
+    private function setModelNameSpace(string $modelName)
     {
         $this->model = 'App\Models\\' . ucfirst($modelName);
     }
@@ -25,9 +25,22 @@ trait ApiHandleRequest
      * @param string $modelName
      * @return void
      */
-    private function  setResourceNameSpace(string $modelName)
+    private function setResourceNameSpace(string $modelName, string $verNumber)
     {
-        $this->resource = 'App\Http\Resources\\' . ucfirst($modelName . 'resource');
+        $this->resource = $this->resourceNameSpace($modelName, $verNumber) . 'Resource';
+    }
+
+    /**
+     * set NameSpace for Resource
+     *
+     * @param string $modelName
+     * @param string $verNumber
+     * @return string
+     */
+    private function resourceNameSpace(string $modelName, string $verNumber): string
+    {
+        return 'App\Http\Resources\\' . $verNumber . '\\' . ucfirst($modelName) . 's\\'
+            . ucfirst($modelName);
     }
 
     /**
@@ -36,9 +49,9 @@ trait ApiHandleRequest
      * @param string $modelName
      * @return void
      */
-    private function  setResourceCollectionNameSpace(string $modelName)
+    private function setResourceCollectionNameSpace(string $modelName, string $verNumber)
     {
-        $this->collection = 'App\Http\Resources\\' . ucfirst($modelName . 'collection');
+        $this->collection = $this->resourceNameSpace($modelName, $verNumber) . 'Collection';
     }
 
     /**
@@ -47,11 +60,13 @@ trait ApiHandleRequest
      * @param string $resourceName
      * @return void
      */
-    protected function apiHandleRequestTraitNameSpaceSetter(string $resourceName)
-    {
+    protected function apiHandleRequestTraitNameSpaceSetter(
+        string $resourceName,
+        string $verNumber = 'v1'
+    ) {
         $this->setModelNameSpace($resourceName);
-        $this->setResourceNameSpace($resourceName);
-        $this->setResourceCollectionNameSpace($resourceName);
+        $this->setResourceNameSpace($resourceName, $verNumber);
+        $this->setResourceCollectionNameSpace($resourceName, $verNumber);
     }
 
     protected function isIdRequest(string $data): bool
