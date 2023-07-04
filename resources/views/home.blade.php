@@ -69,19 +69,19 @@
 								<tr>
 										<td>2</td>
 										<td>Get</td>
-										<td>/book/:id</td>
+										<td>/books/:id</td>
 										<td>Get book by id</td>
 								</tr>
 								<tr>
 										<td>3</td>
 										<td>Get</td>
-										<td>/book/:slug</td>
+										<td>/books/:slug</td>
 										<td>Get book by slug</td>
 								</tr>
 								<tr>
 										<td>4</td>
 										<td>Get</td>
-										<td>/book/:id,:id</td>
+										<td>/books/:id,:id</td>
 										<td>Get multiple books</td>
 								</tr>
 								<tr>
@@ -93,19 +93,19 @@
 								<tr>
 										<td>6</td>
 										<td>Get</td>
-										<td>/character/:id</td>
+										<td>/characters/:id</td>
 										<td>Get character by id</td>
 								</tr>
 								<tr>
 										<td>7</td>
 										<td>Get</td>
-										<td>/character/:slug</td>
+										<td>/characters/:slug</td>
 										<td>Get character by slug</td>
 								</tr>
 								<tr>
 										<td>8</td>
 										<td>Get</td>
-										<td>/character/:id,:id</td>
+										<td>/characters/:id,:id</td>
 										<td>Get multiple characters</td>
 								</tr>
 								<tr>
@@ -117,19 +117,19 @@
 								<tr>
 										<td>10</td>
 										<td>Get</td>
-										<td>/spell/:id</td>
+										<td>/spells/:id</td>
 										<td>Get spell by id</td>
 								</tr>
 								<tr>
 										<td>11</td>
 										<td>Get</td>
-										<td>/spell/:slug</td>
+										<td>/spells/:slug</td>
 										<td>Get spell by slug</td>
 								</tr>
 								<tr>
 										<td>12</td>
 										<td>Get</td>
-										<td>/spell/:id,:id</td>
+										<td>/spells/:id,:id</td>
 										<td>Get multiple spells</td>
 								</tr>
 								<tr>
@@ -141,19 +141,19 @@
 								<tr>
 										<td>14</td>
 										<td>Get</td>
-										<td>/potion/:id</td>
+										<td>/potions/:id</td>
 										<td>Get potion by id</td>
 								</tr>
 								<tr>
 										<td>15</td>
 										<td>Get</td>
-										<td>/potion/:slug</td>
+										<td>/potions/:slug</td>
 										<td>Get potion by slug</td>
 								</tr>
 								<tr>
 										<td>16</td>
 										<td>Get</td>
-										<td>/potion/:id,:id</td>
+										<td>/potions/:id,:id</td>
 										<td>Get multiple potions</td>
 								</tr>
 								<tr>
@@ -165,19 +165,19 @@
 								<tr>
 										<td>18</td>
 										<td>Get</td>
-										<td>/house/:id</td>
+										<td>/houses/:id</td>
 										<td>Get house by id</td>
 								</tr>
 								<tr>
 										<td>19</td>
 										<td>Get</td>
-										<td>/house/:slug</td>
+										<td>/houses/:slug</td>
 										<td>Get house by slug</td>
 								</tr>
 								<tr>
 										<td>20</td>
 										<td>Get</td>
-										<td>/house/:id,:id</td>
+										<td>/houses/:id,:id</td>
 										<td>Get multiple houses</td>
 								</tr>
 								<tr>
@@ -189,25 +189,25 @@
 								<tr>
 										<td>22</td>
 										<td>Get</td>
-										<td>/staff</td>
+										<td>/staffs</td>
 										<td>Get all staff</td>
 								</tr>
 								<tr>
 										<td>23</td>
 										<td>Get</td>
-										<td>/staff/:id</td>
+										<td>/staffs/:id</td>
 										<td>Get staff by id</td>
 								</tr>
 								<tr>
 										<td>24</td>
 										<td>Get</td>
-										<td>/staff:slug</td>
+										<td>/staffs/:slug</td>
 										<td>Get staff by slug</td>
 								</tr>
 								<tr>
 										<td>25</td>
 										<td>Get</td>
-										<td>/staff/:id,:id</td>
+										<td>/staffs/:id,:id</td>
 										<td>Get multiple staffs</td>
 								</tr>
 								<tr>
@@ -219,19 +219,19 @@
 								<tr>
 										<td>27</td>
 										<td>Get</td>
-										<td>/student/:id</td>
+										<td>/students/:id</td>
 										<td>Get student by id</td>
 								</tr>
 								<tr>
 										<td>28</td>
 										<td>Get</td>
-										<td>/student/:slug</td>
+										<td>/students/:slug</td>
 										<td>Get student by slug</td>
 								</tr>
 								<tr>
 										<td>29</td>
 										<td>Get</td>
-										<td>/student/:id,id</td>
+										<td>/students/:id,id</td>
 										<td>Get multiple students</td>
 								</tr>
 								<tr>
@@ -243,13 +243,13 @@
 								<tr>
 										<td>31</td>
 										<td>Get</td>
-										<td>/people/:id</td>
+										<td>/peoples/:id</td>
 										<td>Get people by id</td>
 								</tr>
 								<tr>
 										<td>32</td>
 										<td>Get</td>
-										<td>/people/:slug</td>
+										<td>/peoples/:slug</td>
 										<td>Get people by slug</td>
 								</tr>
 								<tr>
@@ -261,19 +261,19 @@
 								<tr>
 										<td>34</td>
 										<td>Get</td>
-										<td>/student/:id</td>
+										<td>/students/:id</td>
 										<td>Get student by id</td>
 								</tr>
 								<tr>
 										<td>35</td>
 										<td>Get</td>
-										<td>/student/:slug</td>
+										<td>/students/:slug</td>
 										<td>Get student by slug</td>
 								</tr>
 								<tr>
 										<td>36</td>
 										<td>Get</td>
-										<td>/student/:id,:id</td>
+										<td>/students/:id,:id</td>
 										<td>Get multiple students</td>
 								</tr>
 								<tr>
@@ -285,31 +285,31 @@
 								<tr>
 										<td>38</td>
 										<td>Get</td>
-										<td>/movie/:id</td>
+										<td>/movies/:id</td>
 										<td>Get movie by id</td>
 								</tr>
 								<tr>
 										<td>39</td>
 										<td>Get</td>
-										<td>/movie/:slug</td>
+										<td>/movies/:slug</td>
 										<td>Get movie by slug</td>
 								</tr>
 								<tr>
 										<td>40</td>
 										<td>Get</td>
-										<td>/movie/:id,:id</td>
+										<td>/movies/:id,:id</td>
 										<td>Get multiple movies</td>
 								</tr>
 								<tr>
 										<td>41</td>
 										<td>Get</td>
-										<td>/movie/{movie:id}/stars</td>
+										<td>/movies/{movie:id}/stars</td>
 										<td>Get stars of specific movie</td>
 								</tr>
 								<tr>
 										<td>42</td>
 										<td>Get</td>
-										<td>/movie/{movie:id}/producers</td>
+										<td>/movies/{movie:id}/producers</td>
 										<td>Get producers of specific movie</td>
 								</tr>
 						</tbody>
