@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Api\v1;
 use App\Models\Movie;
 use App\Traits\ApiHandleRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\StarCollection;
-use App\Http\Resources\ProducerCollection;
+use App\Http\Resources\v1\Stars\StarCollection;
+use App\Http\Resources\v1\Producers\ProducerCollection;
 
 class MovieController extends Controller
 {

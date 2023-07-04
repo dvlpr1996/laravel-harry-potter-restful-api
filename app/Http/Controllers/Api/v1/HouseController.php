@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\v1;
 use App\Models\House;
 use App\Traits\ApiHandleRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\FeatureCollection;
+use App\Http\Resources\v1\Features\FeatureCollection;
 
 class HouseController extends Controller
 {

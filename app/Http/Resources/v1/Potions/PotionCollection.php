@@ -2,20 +2,18 @@
 
 namespace App\Http\Resources\v1\Potions;
 
-use Illuminate\Support\Facades\Config;
+use App\Http\Resources\v1\Trait\CollectionTrait;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class PotionCollection extends ResourceCollection
 {
+    use CollectionTrait;
+
     public function toArray($request)
     {
         return [
             'data' => $this->collection,
-            'meta' => [
-                'created at' => Config::get('api.meta_info.created_at'),
-                'home page' => Config::get('api.meta_info.home_page'),
-                'copyright' => Config::get('api.meta_info.copyright')
-            ]
+            'meta' => $this->collectionMeta()
         ];
     }
 }
