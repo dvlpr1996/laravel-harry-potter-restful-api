@@ -38,12 +38,12 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         // Global Constraints
-        Route::pattern('book', '[a-zA-Z-]+');
-        Route::pattern('character', '[a-zA-Z-]+');
-        Route::pattern('spell', '[a-zA-Z-]+');
-        Route::pattern('potion', '[a-zA-Z-]+');
-        Route::pattern('house', '[a-zA-Z-]+');
-        Route::pattern('movie', '[a-zA-Z-]+');
+        Route::pattern('book', '\b[a-zA-Z-]+\b|\b[\d,]+\b');
+        Route::pattern('character', '\b[a-zA-Z-]+\b|\b[\d,]+\b');
+        Route::pattern('spell', '\b[a-zA-Z-]+\b|\b[\d,]+\b');
+        Route::pattern('potion', '\b[a-zA-Z-]+\b|\b[\d,]+\b');
+        Route::pattern('house', '\b[a-zA-Z-]+\b|\b[\d,]+\b');
+        Route::pattern('movie', '\b[a-zA-Z-]+\b|\b[\d,]+\b');
     }
 
     /**
