@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\v1\Spells;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class ProducerCollection extends ResourceCollection
+class SpellCollection extends ResourceCollection
 {
     public function toArray($request)
     {

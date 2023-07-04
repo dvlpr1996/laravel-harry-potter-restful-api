@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\v1\Books;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class HouseCollection extends ResourceCollection
+class BookCollection extends ResourceCollection
 {
     public function toArray($request)
     {

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\v1\Characters;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class SpellCollection extends ResourceCollection
+class CharacterCollection extends ResourceCollection
 {
     public function toArray($request)
     {

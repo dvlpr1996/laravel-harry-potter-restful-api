@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\v1\Producers;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class MovieCollection extends ResourceCollection
+class ProducerCollection extends ResourceCollection
 {
     public function toArray($request)
     {
